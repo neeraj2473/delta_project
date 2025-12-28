@@ -97,10 +97,6 @@ main()
 
 // --- Routes ---
 
-// Root Route
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
 
 app.all(/(.*)/, (req, res, next) => {
     next(new ExpressError(404, "Page Not Found"));

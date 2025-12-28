@@ -69,14 +69,14 @@
                 <h4>All Reviews</h4>
                 <div class="row mt-3">
                     <% for(let review of listing.reviews) { %>
-                        <div class="card col-md-5 ms-md-3 mb-3 p-0 shadow-sm">
-                            <div class="card-body">
-                                <h6 class="card-title fw-bold" style="color: black;font-size: 1.1rem;"><%= review.author.username %></h6>
+                        <div class="card col-md-5 ms-md-3 mb-3 p-0 shadow-sm" style=" border: 1px solid rgb(0, 0, 0, 0.912);border-radius: 5px;">
+                            <div class="card-body" style="background-color: rgba(0, 0, 0, 0.912);" >
+                                <h6 class="card-title fw-bold" style="color: rgb(253, 251, 251);font-size: 1.1rem;"><%= review.author.username %></h6>
                                   <p class="starability-result card-text" data-rating=<%= review.rating %>></p>
-                                <p class="card-text text-muted small"><%= review.comment %></p>
+                                <p class="card-text review-comment small"><%= review.comment %></p>
                                <% if(currUser && review.author && currUser._id.equals(review.author._id)) { %>
                 <form method="POST" action="/list/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
-                    <button class="btn btn-sm btn-dark">Delete</button>
+                    <button class="btn btn-sm" style="color: rgb(245, 242, 242); background-color: red;">Delete</button>
                 </form>  
             <% } %>
                             </div>

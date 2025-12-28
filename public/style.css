@@ -25,7 +25,7 @@
     font-weight: bold;
 }
 /* Input field styling */
-.form-control {
+.form-control.me-2 {
   width: 250px;
   padding: 10px 15px;
   border: 1px solid #9e9c9c; /* Sublte border for black theme */
@@ -37,7 +37,7 @@
   color: white;
 }
 
-.form-control:focus {
+.form-control.me-2:focus {
   border-color: #fe424d; /* Red border on focus */
   box-shadow: 0 0 8px rgba(255, 254, 254, 0.955);
   background-color: #111;
@@ -60,6 +60,24 @@
   background-color: #d32f2f; /* Darker red on hover */
   color: #fff;
   transform: scale(1.05);
+}
+/* other ejs form style */
+.form-control {
+  padding: 10px 15px;
+  border: 1px solid #9e9c9c; /* Sublte border for black theme */
+  border-radius: 25px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  background-color: #000; /* Matching your black background */
+  color: white;
+}
+
+.form-control:focus {
+  border-color: #fe424d; /* Red border on focus */
+  box-shadow: 0 0 8px rgba(255, 254, 254, 0.955);
+  background-color: #111;
+  color: #fff;
 }
 /* 1. Set the entire page background to black */
 body {
@@ -163,7 +181,7 @@ margin-right: 1rem;
 
 .card-text {
     font-weight: 400;
-    color: #b0b0b0; 
+    color: #ffffff; 
     font-size: 0.9rem;
 }
 
@@ -232,3 +250,8 @@ margin-right: 1rem;
     background-color: #0144a8 !important; /* Slightly darker blue on hover 
 } */
 /* Removes default link styling from the title and image containers */
+.review-comment {
+    color: #ffffff !important; /* Force white color */
+    opacity: 0.9;             /* Slight transparency for a "muted" feel without the Bootstrap conflict */
+    font-size: 0.95rem;
+}
