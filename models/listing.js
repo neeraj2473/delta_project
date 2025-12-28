@@ -34,17 +34,17 @@ ref:"User"
             ref: "Review"
         }
     ],
-geometry: {
-        type: {
-            type: String, 
-            enum: ['Point'], 
-            required: true
-        },
-        coordinates: {
-            type: [Number],
-            required: true
-        }
-    }
+// geometry: {
+//         type: {
+//             type: String, 
+//             enum: ['Point'], 
+//             required: true
+//         },
+//         coordinates: {
+//             type: [Number],
+//             required: true
+//         }
+//     }
 });
 
 // Middleware to delete associated reviews when a listing is deleted

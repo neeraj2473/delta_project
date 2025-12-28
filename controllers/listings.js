@@ -1,10 +1,5 @@
 const Listing = require("../models/listing");
-const NodeGeocoder = require('node-geocoder');
-const options = {
-  provider: 'openstreetmap'
-};
-const geocoder = NodeGeocoder(options);
- 
+
 // Index Route Logic
 module.exports.index = async (req, res) => {
     let listings = await Listing.find({});
@@ -32,27 +27,20 @@ module.exports.showListing = async (req, res, next) => {
     res.render("show.ejs", { listing });
 };
 
-// Create Route Logic
+// Create Route Logic - REMOVED GEOCODER CALL
 module.exports.createListing = async (req, res) => {
-    let url = req.file.path;        // Cloudinary URL
-    let filename = req.file.filename; // Cloudinary Filename
-    
-    let response = await geocoder.geocode(req.body.listing.location);
+    let url = req.file.path;        
+    let filename = req.file.filename; 
     
     const newListing = new Listing(req.body.listing);
     newListing.owner = req.user._id;
-    newListing.image = { url: req.file.path, filename: req.file.filename };
-
-    // 3. Save Geometry
-    newListing.geometry = {
-        type: 'Point',
-        coordinates: [response[0].longitude, response[0].latitude]
-    };
+    newListing.image = { url, filename };
 
     await newListing.save();
     req.flash("success", "New listing created!");
     res.redirect("/list");
 };
+
 
 // Update Route Logic
 module.exports.updateListing = async (req, res) => {
