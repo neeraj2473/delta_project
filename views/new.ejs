@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate.ejs') -%>
+<div class="row">
+    <div class="col-8 offset-2 ">
+<body>
+    <br><br>
+    <h3>Create a New Listing</h3>
+    <form action="/list" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
+        <div class="mb-3"> <label for="title">Title:</label><br>
+        <input type="text" id="title" name="listing[title]" class="form-control" placeholder="ex:maldives,bali" required>
+<div class="invalid-feedback">Title required</div></div>
+       
+<div class="mb-3">
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="listing[description]" class="form-control" required></textarea>
+        <div class="invalid-feedback">please describe the place</div></div>
+
+<div class="mb-3">
+  <label for="image">Choose Image:</label>
+  <input type="file" id="image" name="listing[image][filename]" class="form-control" placeholder="Upload image"  required>
+  <div class="invalid-feedback">Image required</div>
+</div>
+
+<div class="mb-3">
+        <label for="price">Price per night (in INR):</label><br>
+        <input type="number" id="price" name="listing[price]" class="form-control" placeholder="ex:$1000,&#8377;2,000 " required>
+<div class="invalid-feedback">please enter a valid price</div></div>
+        <div class="row">
+<div class="mb-3 col-md-4">
+        <label for="location">Location:</label><br>
+        <input type="text" id="location" name="listing[location]" class="form-control"  placeholder="ex:island,resort" required>
+<div class="invalid-feedback">location required</div></div>
+<div class="mb-3 col-md-8">
+        <label for="country">Country:</label><br>
+        <input type="text" id="country" name="listing[country]" class="form-control"  placeholder="ex:USA,India" required> <br>
+<div class="invalid-feedback">country required</div></div>
+</div>
+      <div class="mb-3"><button class="btn btn-dark add-btn">Add</button> </div><br><br>
+    </form>
+</div></div>
